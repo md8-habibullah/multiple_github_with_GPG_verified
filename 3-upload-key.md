@@ -1,4 +1,4 @@
-[Home](../README.md) · Step 3 of 5
+[Home](README.md) · Step 3 of 5
 
 # Upload the key to both accounts
 

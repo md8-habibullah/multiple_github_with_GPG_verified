@@ -1,4 +1,4 @@
-[Home](../README.md) · How it works (optional)
+[Home](README.md) · How it works (optional)
 
 # How it works
 
@@ -54,4 +54,4 @@ That's why the browser must be signed in to the right account: GitHub approves t
 
 ---
 
-[Home](../README.md)
+[Home](README.md)

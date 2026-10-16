@@ -1,4 +1,4 @@
-[Home](../README.md) · Troubleshooting
+[Home](README.md) · Troubleshooting
 
 # Troubleshooting
 
@@ -34,4 +34,4 @@ Upload `work-key.asc` to the work account ([how](3-upload-key.md)), then add the
 
 ---
 
-[Home](../README.md) · [Cheat sheet](cheatsheet.md)
+[Home](README.md) · [Cheat sheet](cheatsheet.md)

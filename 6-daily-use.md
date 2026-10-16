@@ -1,4 +1,4 @@
-[Home](../README.md) · Daily use
+[Home](README.md) · Daily use
 
 # Daily use and checking
 
@@ -46,4 +46,4 @@ At [github.com/settings/keys](https://github.com/settings/keys), turn on **Flag 
 
 ---
 
-[Troubleshooting](troubleshooting.md) · [Cheat sheet](cheatsheet.md) · [Home](../README.md)
+[Troubleshooting](troubleshooting.md) · [Cheat sheet](cheatsheet.md) · [Home](README.md)

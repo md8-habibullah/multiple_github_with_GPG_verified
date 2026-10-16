@@ -1,4 +1,4 @@
-[Home](../README.md) · Step 2 of 5
+[Home](README.md) · Step 2 of 5
 
 # Create the GPG key
 

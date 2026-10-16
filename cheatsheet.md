@@ -1,4 +1,4 @@
-[Home](../README.md) · Cheat sheet
+[Home](README.md) · Cheat sheet
 
 # Cheat sheet
 
@@ -37,8 +37,18 @@ gpg --armor --export-secret-keys <KEY_ID> > private-key-BACKUP.asc
 gpg --import private-key-BACKUP.asc              # restore on a new laptop
 ```
 
-Never share the private backup file.
+Never share the private backup file. Renewing and lost keys: [backup.md](backup.md)
+
+## Recommended Git defaults
+
+```bash
+git config --global pull.rebase false
+git config --global init.defaultBranch main
+git config --global push.autoSetupRemote true
+git config --global fetch.prune true
+git config --list --show-origin                  # see every setting and its file
+```
 
 ---
 
-[Home](../README.md)
+[Home](README.md)

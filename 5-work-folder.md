@@ -1,4 +1,4 @@
-[Home](../README.md) · Step 5 of 5 (optional)
+[Home](README.md) · Step 5 of 5 (optional)
 
 # Work folder setup
 

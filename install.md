@@ -1,4 +1,4 @@
-[Home](../README.md) · Install
+[Home](README.md) · Install
 
 # Install git, gh and gpg
 

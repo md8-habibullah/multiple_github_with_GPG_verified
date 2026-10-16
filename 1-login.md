@@ -1,4 +1,4 @@
-[Home](../README.md) · Step 1 of 5
+[Home](README.md) · Step 1 of 5
 
 # Log in to both accounts
 

@@ -1,4 +1,4 @@
-[Home](../README.md) · Step 4 of 5
+[Home](README.md) · Step 4 of 5
 
 # Git settings
 
@@ -36,6 +36,17 @@ echo test | gpg --clearsign
 ```
 
 If it asks for your passphrase and prints a signed block, signing works.
+
+## Recommended extras
+
+```bash
+git config --global pull.rebase false          # merge on pull; some devices default to true
+git config --global init.defaultBranch main
+git config --global push.autoSetupRemote true
+```
+
+See what your device already set, and from which file: `git config --list --show-origin`.
+The reasons for each setting are under [Recommended settings and tips](README.md#recommended-settings-and-tips).
 
 ---
 
