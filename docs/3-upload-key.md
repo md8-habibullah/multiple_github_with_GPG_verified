@@ -1,6 +1,6 @@
-[Home](README.md) · Step 3 of 5
+[Home](../README.md) · Step 3 of 5
 
-# Upload the key to both accounts
+# Add the GPG key to both GitHub accounts
 
 ## Export it
 
@@ -37,8 +37,8 @@ gh gpg-key add key.asc --title "My Laptop"
 On [github.com/settings/keys](https://github.com/settings/keys) the key lists its emails.
 That account's own email should say **Verified**. The other account's email showing *Unverified* there is normal.
 
-> **"Key is already in use"** on the second account? GitHub didn't accept the same key twice.
-> Make a second key just for work: [one key per account](troubleshooting.md#key-is-already-in-use).
+> **Same key on two accounts?** GitHub accepts it (tested in October 2026). If it ever answers **"Key is already in use"**,
+> make a second key just for work: [one key per account](troubleshooting.md#key-is-already-in-use).
 
 > Added another email to the key later? Export it again and re-upload. GitHub only knows the emails it saw at upload time.
 

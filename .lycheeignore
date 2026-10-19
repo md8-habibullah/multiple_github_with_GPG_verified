@@ -1,0 +1,8 @@
+# Need a GitHub login, so a link checker always sees them as broken
+^https://github\.com/settings/
+^https://github\.com/login/
+# The site itself is checked by npm run build
+^https://md8-habibullah\.github\.io/
+# Placeholder examples in the docs
+your-company
+users\.noreply\.github\.com

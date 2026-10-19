@@ -1,0 +1,23 @@
+# Weekly check of every external link in the Markdown pages (GitHub, gnupg.org, cli.github.com, ...).
+# Pages that need a login, like github.com/settings/*, are skipped via .lycheeignore.
+name: Links
+
+on:
+  schedule:
+    - cron: '17 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --max-retries 3 './**/*.md'
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

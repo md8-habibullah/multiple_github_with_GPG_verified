@@ -1,8 +1,8 @@
-[Home](README.md) · Step 5 of 5 (optional)
+[Home](../README.md) · Step 5 of 5 (optional)
 
-# Work folder setup
+# Use your work email automatically in work folders
 
-Keep all work repos in `~/work/`, and Git uses your work email there automatically.
+Keep all work repos in `~/work/`, and Git uses your work email there by itself. This is Git's built-in `includeIf`: no tools, no aliases.
 
 ## 1. Make the folder
 
@@ -36,6 +36,8 @@ git config user.email
 ```
 
 Anywhere else it prints your personal email.
+
+> **More than two accounts?** Add one folder, one `~/.gitconfig-<name>` file and one `includeIf` block per account.
 
 ---
 

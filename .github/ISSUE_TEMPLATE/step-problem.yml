@@ -1,0 +1,37 @@
+name: A step didn't work
+description: A command failed, or the result didn't match the guide
+labels: [problem]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Which page and step?
+      placeholder: e.g. 2. GPG key, "Add your work email"
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: What did you run, and what did it print?
+      description: Paste the exact command and output. Replace real emails, usernames and key IDs with placeholders first.
+      render: text
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: System
+      options: [Linux, macOS, Windows (Git Bash), Windows (other), WSL]
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions
+      description: Output of `git --version`, `gh --version` and `gpg --version | head -1`
+      render: text
+  - type: textarea
+    id: fix
+    attributes:
+      label: Did you find a fix?
+      description: Optional. If something worked, it helps the next person.

@@ -1,4 +1,4 @@
-[Home](README.md) · Backup and recovery
+[Home](../README.md) · Backup and recovery
 
 # Backup and recovery
 
@@ -58,4 +58,4 @@ On GitHub, delete the old copy at [settings/keys](https://github.com/settings/ke
 
 ---
 
-[Home](README.md) · [Troubleshooting](troubleshooting.md)
+[Home](../README.md) · [Troubleshooting](troubleshooting.md)

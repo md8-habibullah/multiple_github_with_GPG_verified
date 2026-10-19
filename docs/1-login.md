@@ -1,6 +1,8 @@
-[Home](README.md) · Step 1 of 5
+[Home](../README.md) · Step 1 of 5
 
-# Log in to both accounts
+# Log in to two GitHub accounts with gh
+
+The GitHub CLI (`gh`, version 2.40+) keeps several accounts logged in side by side. You log in once per account, then switch with one command.
 
 ## Personal account
 
@@ -41,12 +43,13 @@ gh auth setup-git
 gh auth status
 ```
 
-`gh auth status` should list both accounts. One of them says `Active account: true`. That is the one used for `git push` right now.
+`gh auth status` should list both accounts. One of them says `Active account: true`. That is the one Git uses to push and pull right now.
 
 To change it:
 
 ```bash
-gh auth switch
+gh auth switch                  # pick from a list
+gh auth switch -u you-work      # or name the account
 ```
 
 > **Browser didn't open?** Copy the link into the browser yourself. To fix it for next time:

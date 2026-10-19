@@ -1,6 +1,6 @@
-[Home](README.md) · Step 4 of 5
+[Home](../README.md) · Step 4 of 5
 
-# Git settings
+# Make Git sign every commit
 
 Your personal account is the default everywhere.
 
@@ -21,6 +21,7 @@ Add **one** line to your shell, then open a new terminal:
 | bash | `~/.bashrc` | `export GPG_TTY=$(tty)` |
 | zsh | `~/.zshrc` | `export GPG_TTY=$(tty)` |
 | fish | `~/.config/fish/conf.d/gpg.fish` | `set -gx GPG_TTY (tty)` |
+| Git Bash (Windows) | nothing to add | |
 
 macOS also needs:
 
@@ -37,6 +38,16 @@ echo test | gpg --clearsign
 
 If it asks for your passphrase and prints a signed block, signing works.
 
+## Signed tags need a message
+
+With `tag.gpgsign` on, every tag is a signed, annotated tag, so Git wants a message. Give it inline, or Git opens your editor:
+
+```bash
+git tag -m "Version 1.0.0" v1.0.0
+```
+
+No editor set up? `git config --global core.editor nano` (or `vim`, or `"code --wait"`).
+
 ## Recommended extras
 
 ```bash
@@ -46,7 +57,7 @@ git config --global push.autoSetupRemote true
 ```
 
 See what your device already set, and from which file: `git config --list --show-origin`.
-The reasons for each setting are under [Recommended settings and tips](README.md#recommended-settings-and-tips).
+The reasons for each setting are under [Recommended settings and tips](../README.md#recommended-settings-and-tips).
 
 ---
 

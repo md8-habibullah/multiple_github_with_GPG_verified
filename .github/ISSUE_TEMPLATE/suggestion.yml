@@ -1,0 +1,16 @@
+name: Suggest an improvement
+description: Something unclear, missing, or a better way to do a step
+labels: [improvement]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What should change?
+      description: Link the page, and say what was unclear or missing.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it help?
+      description: Optional. Your setup, or the situation where you needed it.

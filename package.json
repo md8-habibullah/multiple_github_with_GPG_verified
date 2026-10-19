@@ -1,0 +1,26 @@
+{
+  "name": "multiple-github-accounts-gpg-verified",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Use multiple GitHub accounts (personal and work) on one machine with the GitHub CLI, one GPG key and Verified commits.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "preview": "node scripts/preview.mjs",
+    "images": "node scripts/images.mjs"
+  },
+  "devDependencies": {
+    "marked": "18.0.14",
+    "puppeteer-core": "25.12.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "author": "MD. Habibullah Sharif (https://habibullah.dev)",
+  "license": "MIT",
+  "homepage": "https://md8-habibullah.github.io/multiple-github-accounts-gpg-verified/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/md8-habibullah/multiple-github-accounts-gpg-verified.git"
+  }
+}

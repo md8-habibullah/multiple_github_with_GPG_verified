@@ -1,6 +1,6 @@
-[Home](README.md) · Cheat sheet
+[Home](../README.md) · Cheat sheet
 
-# Cheat sheet
+# Cheat sheet: multiple GitHub accounts and GPG
 
 ## Accounts
 
@@ -8,6 +8,7 @@
 gh auth login                    # add an account
 gh auth status                   # list accounts, see the active one
 gh auth switch                   # change active account
+gh auth switch -u you-work       # switch to a named account
 gh auth logout -u <user>         # remove an account
 ```
 
@@ -17,6 +18,7 @@ gh auth logout -u <user>         # remove an account
 gpg --full-generate-key                          # create a key
 gpg --list-secret-keys --keyid-format=long       # show keys and IDs
 gpg --quick-add-uid <KEY_ID> "Name <email>"      # add an email
+gpg --check-trustdb                              # new email shows [ unknown]? refresh
 gpg --armor --export <KEY_ID> > key.asc          # export to upload
 gh gpg-key add key.asc --title "My Laptop"       # upload to active account
 ```
@@ -27,7 +29,9 @@ gh gpg-key add key.asc --title "My Laptop"       # upload to active account
 git config --global user.signingkey <KEY_ID>
 git config --global commit.gpgsign true
 git config user.email                            # which email is used here
+git config --show-origin user.email              # and which file set it
 git log --show-signature -1                      # check last commit
+git tag -m "Version 1.0.0" v1.0.0                # signed tag with a message
 ```
 
 ## Back up your key (once, keep it offline)
@@ -51,4 +55,4 @@ git config --list --show-origin                  # see every setting and its fil
 
 ---
 
-[Home](README.md)
+[Home](../README.md) · [Troubleshooting](troubleshooting.md) · [FAQ](faq.md)

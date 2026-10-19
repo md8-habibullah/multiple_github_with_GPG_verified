@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Terminal demo (rendered to docs/images/demo.gif by npm run images)</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  html, body { margin: 0; background: #0a101c; }
+  .term { width: 880px; height: 500px; background: #101b2d; color: #dce4f0; font: 15px/1.55 var(--mono); position: relative; overflow: hidden; }
+  .bar { height: 34px; display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #0c1524; border-bottom: 1px solid #1d2a42; }
+  .bar i { width: 11px; height: 11px; border-radius: 50%; background: #2a3852; }
+  .bar b { margin-left: 10px; font: 600 13px var(--sans); color: #8391a8; }
+  .screen { padding: 14px 18px; white-space: pre-wrap; }
+  .pr { color: #4cc785; }
+  .dir { color: #8391a8; }
+  .p { color: #9db8ff; font-weight: 700; }
+  .w { color: #f2b75e; font-weight: 700; }
+  .ok { color: #4cc785; }
+  .dim { color: #8391a8; }
+  .cursor { display: inline-block; width: 9px; height: 18px; background: #dce4f0; vertical-align: -3px; }
+  .card { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); width: 640px; background: #f4f6f9; color: #142036; border-radius: 12px; padding: 14px 16px; font-family: var(--sans); box-shadow: 0 18px 40px #0008; display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: center; border-left: 5px solid #b0700c; }
+  .card .repo { font-size: 13px; color: #556073; }
+  .card .m { font-weight: 700; font-size: 17px; }
+  .card .who { font-size: 13px; color: #556073; }
+  .card .badge { grid-row: 1 / span 3; grid-column: 2; font-size: 14px; padding: 4px 12px; }
+</style>
+</head>
+<body>
+<div class="term" id="term">
+  <div class="bar"><i></i><i></i><i></i><b>Terminal</b></div>
+  <div class="screen" id="screen"></div>
+</div>
+<script>
+// A timeline of terminal states. render(i) draws state i and returns how long it stays on screen (ms).
+const P = (dir) => `<span class="pr">❯</span> <span class="dir">${dir}</span> `;
+const id = (s) => s
+  .replace(/you-personal|you@personal\.dev/g, '<span class="p">$&</span>')
+  .replace(/you-work|you@company\.com/g, '<span class="w">$&</span>');
+const scenes = [
+  { dir: '~', cmd: 'gh auth status', out: [
+    'github.com',
+    '  <span class="ok">✓</span> Logged in to github.com account you-personal (keyring)',
+    '  - Active account: <b>true</b>',
+    '  - Git operations protocol: https',
+    '',
+    '  <span class="ok">✓</span> Logged in to github.com account you-work (keyring)',
+    '  - Active account: false',
+    '  - Git operations protocol: https',
+  ], hold: 2200 },
+  { dir: '~', cmd: 'cd ~/work/api', out: [], hold: 300, keep: true },
+  { dir: '~/work/api', cmd: 'gh auth switch -u you-work', out: ['<span class="ok">✓</span> Switched active account for github.com to you-work'], hold: 900, keep: true },
+  { dir: '~/work/api', cmd: 'git config user.email', out: ['you@company.com'], hold: 1800 },
+  { dir: '~/work/api', cmd: 'git commit -m "Add health check endpoint"', out: ['[main 4f2c1a9] Add health check endpoint', ' 1 file changed, 12 insertions(+)'], hold: 900, keep: true },
+  { dir: '~/work/api', cmd: 'git log --show-signature -1', out: [
+    'commit 4f2c1a9e07b3d5c18a6f2e9b0c4d7a1e5f3b8c20',
+    'gpg: Signature made Tue 20 Oct 2026 10:24:31 AM UTC',
+    'gpg:                using EDDSA key 3439F5BC8FA34EB1C3EEE13525B79846119AEE81',
+    'gpg: <span class="ok">Good signature</span> from "Your Name &lt;you@personal.dev&gt;" [ultimate]',
+    'gpg:                 aka "Your Name &lt;you@company.com&gt;" [ultimate]',
+    'Author: Your Name &lt;you@company.com&gt;',
+  ], hold: 2600 },
+  { dir: '~/work/api', cmd: 'git push', out: ['To https://github.com/your-company/api.git', '   9b1e0d2..4f2c1a9  main -&gt; main'], hold: 600, keep: true, card: true },
+];
+
+const states = [];
+let history = '';
+for (const s of scenes) {
+  const prompt = P(s.dir);
+  for (let i = 0; i <= s.cmd.length; i += 2) {
+    states.push({ html: history + prompt + id(s.cmd.slice(0, i)) + '<span class="cursor"></span>', ms: i === 0 ? 500 : 55 });
+  }
+  const done = history + prompt + id(s.cmd) + '\n' + s.out.map(id).join('\n') + (s.out.length ? '\n' : '');
+  states.push({ html: done + prompt + '<span class="cursor"></span>', ms: s.hold });
+  if (s.card) {
+    const card = `<div class="card"><span class="repo">your-company/api · Commits</span><span class="m">Add health check endpoint</span><span class="who"><span class="w">you-work</span> committed just now · 4f2c1a9</span><span class="badge">Verified</span></div>`;
+    states.push({ html: done + prompt + '<span class="cursor"></span>', card, ms: 3800 });
+  }
+  history = s.keep ? done : '';
+}
+window.frames = states.length;
+window.render = (i) => {
+  const s = states[i];
+  document.getElementById('screen').innerHTML = s.html;
+  document.querySelector('.card')?.remove();
+  if (s.card) document.getElementById('term').insertAdjacentHTML('beforeend', s.card);
+  return s.ms;
+};
+document.fonts.ready.then(() => { document.body.dataset.ready = '1'; });
+</script>
+</body>
+</html>

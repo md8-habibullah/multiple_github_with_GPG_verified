@@ -1,8 +1,8 @@
-[Home](README.md) · Step 2 of 5
+[Home](../README.md) · Step 2 of 5
 
-# Create the GPG key
+# Create one GPG key with both emails
 
-One key, holding both of your emails.
+GitHub shows **Verified** when a commit is signed by a key that contains the commit's email. One GPG key can hold several emails, so a single key covers both accounts.
 
 ## Make the key
 
@@ -32,16 +32,20 @@ gpg --list-secret-keys --keyid-format=long
 ```
 
 ```text
-sec   ed25519/21C21FB0B1A939BF 2026-10-16 [SC]
-      AFB70B6C70AAAD41E4C26B7C21C21FB0B1A939BF    <- this long line is your KEY_ID
+sec   ed25519/25B79846119AEE81 2026-10-19 [SC]
+      3439F5BC8FA34EB1C3EEE13525B79846119AEE81    <- this long line is your KEY_ID
 uid                 [ultimate] Your Name <you@personal.dev>
+ssb   cv25519/E7B4E44FC1B55C24 2026-10-19 [E]
 ```
 
 ## Add your work email
 
 ```bash
 gpg --quick-add-uid <KEY_ID> "Your Name <you@company.com>"
+gpg --check-trustdb
 ```
+
+The second command refreshes gpg's local trust list. Without it the new email shows `[ unknown]` for a while. That is only cosmetic: signing and GitHub work either way.
 
 Check that both emails are there:
 
@@ -50,8 +54,8 @@ gpg --list-keys <KEY_ID>
 ```
 
 ```text
-uid   [ultimate] Your Name <you@personal.dev>
-uid   [ultimate] Your Name <you@company.com>
+uid           [ultimate] Your Name <you@personal.dev>
+uid           [ultimate] Your Name <you@company.com>
 ```
 
 <details>
@@ -65,6 +69,7 @@ gpg> deluid
 Really remove this user ID? (y/N) y
 gpg> save
 ```
+
 Only do this before you upload the key anywhere.
 </details>
 

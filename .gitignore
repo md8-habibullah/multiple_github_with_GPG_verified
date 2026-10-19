@@ -1,0 +1,9 @@
+node_modules/
+.site/
+*.log
+.DS_Store
+Thumbs.db
+# Never commit key material
+*.asc
+*.gpg
+*.rev
