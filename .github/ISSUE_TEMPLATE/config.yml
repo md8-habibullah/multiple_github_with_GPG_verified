@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Check troubleshooting first
-    url: https://md8-habibullah.github.io/multiple-github-accounts-gpg-verified/troubleshooting/
+    url: https://multi-github.habibullah.dev/troubleshooting/
     about: Most errors (gpg failed to sign the data, Unverified commits, 403 on push) have a one-minute fix there.
   - name: Ask a question
     url: https://github.com/md8-habibullah/multiple-github-accounts-gpg-verified/discussions

@@ -5,14 +5,14 @@
 **Personal and work GitHub on the same laptop.** Switch accounts with one command, sign every commit with one GPG key,
 and get the green **Verified** badge on both accounts. About 15 minutes, by hand, no extra tools.
 
-[![Website](https://img.shields.io/badge/guide-read_online-2D5BE3)](https://md8-habibullah.github.io/multiple-github-accounts-gpg-verified/)
+[![Website](https://img.shields.io/badge/guide-read_online-2D5BE3)](https://multi-github.habibullah.dev/)
 [![GitHub CLI](https://img.shields.io/badge/gh-2.40%2B-181717?logo=github&logoColor=white)](https://cli.github.com)
 [![GnuPG](https://img.shields.io/badge/GnuPG-2.2%2B-0093DD?logo=gnuprivacyguard&logoColor=white)](https://gnupg.org)
 [![Git](https://img.shields.io/badge/git-2.37%2B-F05032?logo=git&logoColor=white)](https://git-scm.com)
 [![Linux · macOS · Windows](https://img.shields.io/badge/Linux_·_macOS_·_Windows-supported-17804A)](docs/install.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-5A6475)](LICENSE)
 
-[**Read it as a website**](https://md8-habibullah.github.io/multiple-github-accounts-gpg-verified/) ·
+[**Read it as a website**](https://multi-github.habibullah.dev/) ·
 [Quick setup](#quick-setup) ·
 [Troubleshooting](docs/troubleshooting.md) ·
 [FAQ](docs/faq.md) ·

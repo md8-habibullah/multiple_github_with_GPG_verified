@@ -9,7 +9,7 @@ import { resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 const out = resolve(root, '.site');
 const REPO = 'md8-habibullah/multiple-github-accounts-gpg-verified';
-const SITE_URL = 'https://md8-habibullah.github.io/multiple-github-accounts-gpg-verified/';
+const SITE_URL = 'https://multi-github.habibullah.dev/';
 const REPO_URL = `https://github.com/${REPO}`;
 const SITE_NAME = 'One Key, Two Accounts';
 const AUTHOR = { '@type': 'Person', name: 'MD. Habibullah Sharif', url: 'https://habibullah.dev', sameAs: ['https://github.com/md8-habibullah', 'https://dev.to/md8_habibullah'] };
